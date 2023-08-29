@@ -79,48 +79,55 @@ d = dit.Distribution(['000','001','100','101','010','011','110'], [0.0625,0.3,0.
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 # Example XOR
 d = dit.Distribution(['000', '011', '101', '110'], [1/4]*4)
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 # Example PwUnq
 d = dit.Distribution(['010', '100', '021', '201'], [1/4]*4)
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 # Example RdnErr
 d = dit.Distribution(['000', '111', '010', '101'], [3/8,3/8,1/8,1/8])
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
-
+print(dit.pid.PID_RDR(d))
 
 # Example Tbc
 d = dit.Distribution(['000', '011', '102', '113'], [1/4]*4)
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 # Example Unq
 d = dit.Distribution(['000', '010', '101', '111'], [1/4]*4)
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 # Example And
 d = dit.Distribution(['000', '010', '100', '111'], [1/4]*4)
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 # Example Tbep
 d = dit.Distribution(['0000', '0111', '1012', '1103'], [1/4]*4)
 print(dit.pid.PID_BROJA(d))
 print(dit.pid.PID_WB(d))
 print(dit.pid.PID_PM(d))
+print(dit.pid.PID_RDR(d))
 
 '''
