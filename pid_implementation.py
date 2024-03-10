@@ -34,7 +34,7 @@ Main functions:
 from itertools import combinations, product
 import numpy as np
 import pandas as pd
-from shapely.geometry import MultiPoint
+from scipy.spatial import ConvexHull
 
 logBase = 2
 precision = 14
@@ -85,9 +85,8 @@ def channelToPoints(k):
 		curve.append((np.array(p) + curve[-1]))
 	return np.array(curve)
 
-def hullToChannel(hull):
-	hull = hull if 'LineString' in str(type(hull)) else hull.exterior 
-	cornerPoints = sorted(list(set(hull.coords)),key=lambda x: tuple(x)) 
+def hullToChannel(hull_points):
+	cornerPoints = sorted(hull_points,key=lambda x: tuple(x)) 
 	channel, init = [], np.array([0,0])
 	for x in cornerPoints:
 		if np.any(x != init):
@@ -95,19 +94,19 @@ def hullToChannel(hull):
 			init = np.array(x)
 	return np.array(channel).T
 
+def myConvexHull(points):
+	if all([abs(a-b) < 10**(-precision) for a,b in points.tolist()]):
+		return np.array([[0,0],[1,1]])
+	else:
+		return np.unique(np.vstack([points[s] for s in ConvexHull(points).simplices]),axis=0)
+
 '''
 	returns the Blackwell-joint element of 'k1' and 'k2' (return: k1 u k2)
 '''
 def BlackwellJoint(k1,k2):
 	k1,k2=np.round(k1,precision),np.round(k2,precision)
 	assert np.all(k1 >= 0.0) and np.all(k2 >= 0.0), f'invalid channel {k1} or {k2}'
-	return hullToChannel(MultiPoint(np.vstack((channelToPoints(k1),channelToPoints(k2)))).convex_hull)
-
-# intersection of two channels (not used in examples)
-def BlackwellMeet(k1,k2):
-	k1,k2=np.round(k1,precision),np.round(k2,precision)
-	assert np.all(k1 >= 0.0) and np.all(k2 >= 0.0), f'invalid channel {k1} or {k2}'
-	return hullToChannel(MultiPoint(channelToPoints(k1)).convex_hull.intersection(MultiPoint(channelToPoints(k2)).convex_hull).convex_hull)
+	return hullToChannel(myConvexHull(np.vstack((channelToPoints(k1),channelToPoints(k2)))).tolist())
 
 ''' 
 	meetList: list of channels (numpy arrays) to take the meet of: k1 ^ k2 ^ k3 is given as [k1, k2, k3]
