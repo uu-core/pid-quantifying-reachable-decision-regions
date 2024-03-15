@@ -1,9 +1,18 @@
 # Implementation: Decomposing and Tracing Mutual Information by Quantifying Reachable Decision Regions
 
-This repository provides an implementation of the method and examples in:
--  	Mages, T.; Rohner, C. Decomposing and Tracing Mutual Information by Quantifying Reachable Decision Regions. Entropy 2023
+This repository provides ...
+1. an implementation of the method and all examples/analyses in:
 
-## Update
+	_Mages, T.; Rohner, C. Decomposing and Tracing Mutual Information by Quantifying Reachable Decision Regions. Entropy 2023. [https://doi.org/10.3390/e25071014](https://doi.org/10.3390/e25071014)_
+    
+2. a non-negative decomposition of mutual information on the redundancy lattice and its corresponding information-flow analysis for Markov chains.
+
+## Update 2: New implementation
+**_A new implementation is available:_** [uu-core/pid-blackwell-specific-information](https://github.com/uu-core/pid-blackwell-specific-information)
+
+It provides an implementation for the partial information decomposition and information flow-analysis of any f-information measure on both a redundancy and synergy lattice. The decomposition and tracing of Rényi-information can be obtained as transformation as described in the corresponding publication: [_"Non-Negative Decomposition of Multivariate Information: from Minimum to Blackwell Specific Information" (preprint)_](https://www.preprints.org/manuscript/202403.0285).
+
+## Update 1: Available in `dit`
 The decomposition is now also available in the [dit Python package for discrete information theory](https://github.com/dit/dit) under the name `PID_RDR` (Partial Information Decomposition - Reachable Decision Regions). After installing the package from its git-repository, it can be used as shown below:
 
 ```
@@ -22,6 +31,8 @@ print(dit.pid.PID_RDR(d))
 - `pid_implementation.py`: provides the implementation of the presented method and flow analysis
 - `pid_examples.py`: provides the decompositions examples of Appendix E
 - `flow_example.py`: provides the flow analysis example of Section 4.2
+
+_**Requirements:**_ [NumPy](https://numpy.org/install/), [SciPy](https://scipy.org/install/) and [pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
 
 ## Example usage
 ```
