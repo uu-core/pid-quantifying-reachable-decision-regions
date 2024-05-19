@@ -10,7 +10,8 @@ This repository provides ...
 ## Update 2: New implementation
 **_A new implementation is available:_** [uu-core/pid-blackwell-specific-information](https://github.com/uu-core/pid-blackwell-specific-information)
 
-It provides an implementation for the partial information decomposition and information flow-analysis of any f-information measure on both a redundancy and synergy lattice. The decomposition and tracing of Rényi-information can be obtained as transformation as described in the corresponding publication: [_"Non-Negative Decomposition of Multivariate Information: from Minimum to Blackwell Specific Information" (preprint)_](https://www.preprints.org/manuscript/202403.0285).
+It provides an implementation for the partial information decomposition and information flow-analysis of any f-information measure on both a redundancy and synergy lattice. The decomposition and tracing of Rényi-information can be obtained as transformation as described in the corresponding publication: 
+- _Mages, T.; Anastasiadi, E.; Rohner, C. Non-Negative Decomposition of Multivariate Information: From Minimum to Blackwell-Specific Information. Entropy 2024. [https://doi.org/10.3390/e26050424](https://doi.org/10.3390/e26050424)_
 
 ## Update 1: Available in `dit`
 The decomposition is now also available in the [dit Python package for discrete information theory](https://github.com/dit/dit) under the name `PID_RDR` (Partial Information Decomposition - Reachable Decision Regions). After installing the package from its git-repository, it can be used as shown below:
